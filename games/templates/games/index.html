@@ -1,0 +1,66 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block body %}
+<div class="container">
+    <h1 class="has-text-centered is-size-1 primary-margins">Games</h1>
+    <table class="table is-fullwidth">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Platform</th>
+                <th>Release Date</th>
+                <th>Owned</th>
+                <th>Watched</th>
+                <th>Completed</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for game in games %}
+            <tr>
+                <th>{{ game.id }}</th>
+                <td>{{ game.title }}</td>
+                <td>{{ game.platform }}</td>
+                <td>{{ game.release_date }}</td>
+                <td>
+                    {% if game.owned %}
+                        <span class="icon is-medium has-text-success">
+                            <img src="{% static 'images/check-bold.svg' %}" alt="checkmark">
+                        </span>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if game.watched %}
+                        <span class="icon is-medium has-text-success">
+                            <img src="{% static 'images/check-bold.svg' %}" alt="checkmark">
+                        </span>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if game.completed %}
+                        <span class="icon is-medium has-text-success">
+                            <img src="{% static 'images/check-bold.svg' %}" alt="checkmark">
+                        </span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
+        {% if page_obj.has_previous %}
+            <a class="pagination-previous" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+        {% else %}
+            <a class="pagination-previous" disabled="">Previous</a>
+        {% endif %}
+
+        {% if page_obj.has_next %}
+            <a class="pagination-next" href="?page={{ page_obj.next_page_number }}">Next page</a>
+        {% else %}
+            <a class="pagination-next" disabled="">Next page</a>
+        {% endif %}
+    </nav>
+</div>
+{% endblock %}

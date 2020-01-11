@@ -1,0 +1,26 @@
+{% load static %}
+
+<nav class="navbar navbar-shadow" role="navigation" aria-label="main navigation">
+  <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="{% url 'core:index' %}">
+            <img src="{% static 'images/controller.svg' %}" width="70px" alt="logo">
+            Game Library
+        </a>
+
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item" href="{% url 'games:index' %}">
+            Games
+          </a>
+        </div>
+      </div>
+  </div>
+</nav>

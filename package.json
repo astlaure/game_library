@@ -1,0 +1,20 @@
+{
+  "name": "game_library",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass ./resources/sass:./core/static/css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@mdi/font": "^4.7.95",
+    "bulma": "^0.8.0"
+  },
+  "devDependencies": {
+    "sass": "^1.24.4"
+  }
+}
